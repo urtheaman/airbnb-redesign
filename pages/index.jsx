@@ -34,7 +34,7 @@ const Home = ({ exploreData, carasoulCardData }) => {
 
           <section className="overflow-scroll scrollbar-hide">
             <h2 className="text-4xl font-semibold py-6">Live Anywhere</h2>
-            <div id="carasoul" className="flex items-center gap-4 p-2">
+            <div id="carasoul" className="flex items-center space-x-4 px-2">
               {carasoulCardData?.map(({ img, title }, index) => {
                 return <CarasoulCard key={index} img={img} title={title} />;
               })}

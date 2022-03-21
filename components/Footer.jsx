@@ -3,7 +3,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <div className="max-w-7xl mx-auto grid p-10 grid-cols-1  sm:grid-cols-2 md:grid-cols-4 sm:justify-items-center">
-      <div className="my-4 sm:w-20">
+      <div className="my-4 sm:w-30">
         <h5 className="text-sm uppercase mb-2 font-semibold">About</h5>
         <div className="capitalize text-xs flex flex-col space-y-3">
           <Link href="#">How Airbnb works</Link>
@@ -14,7 +14,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="my-4 sm:w-20">
+      <div className="my-4 sm:w-30">
         <h5 className="text-sm uppercase mb-2 font-semibold">Community</h5>
         <div className="capitalize text-xs flex flex-col space-y-3">
           <Link href="#">Accessibility</Link>
@@ -25,7 +25,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="my-4 sm:w-20">
+      <div className="my-4 sm:w-30">
         <h5 className="text-sm uppercase mb-2 font-semibold">Host</h5>
         <div className="capitalize text-xs flex flex-col space-y-3">
           <Link href="#">Presets</Link>
@@ -36,7 +36,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="my-4 sm:w-20">
+      <div className="my-4 sm:w-30">
         <h5 className="text-sm uppercase mb-2 font-semibold">Support</h5>
         <div className="capitalize text-xs flex flex-col space-y-3">
           <Link href="#">Help center</Link>
