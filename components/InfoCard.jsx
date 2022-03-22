@@ -15,6 +15,7 @@ const InfoCard = ({
           layout="fill"
           className="rounded-lg"
           objectFit="cover"
+          priority={false}
         />
       </div>
 

@@ -1,17 +1,26 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import InfoCard from "../components/InfoCard";
+import { useRouter } from "next/dist/client/router";
 
 const Search = ({ searchData }) => {
+  const router = useRouter();
+  const { location, startDate, endDate, noOfGuests } = router.query;
+  const start = decodeURIComponent(startDate);
+  const end = decodeURIComponent(endDate);
+  console.log(location, start, end, noOfGuests);
   return (
     <div>
       <Header />
 
-      <main className="flex flex-col m-6">
+      <main className="flex flex-col m-6 md:m-8 md:mt-10">
         <section>
-          <p className="text-xs">300+ Stays for 5 guests</p>
-          <h1 className="text-2xl md:text-3xl font-semibold my-4">
-            Stays in London
+          <p className="text-xs">
+            300+ Stays for {noOfGuests}{" "}
+            {noOfGuests === "1" ? "guest" : " guests"} {start == end ? "for today" : `from ${start} to ${end}` }
+          </p>
+          <h1 className="text-2xl capitalize md:text-3xl font-semibold my-4">
+            Stays in {location}
           </h1>
 
           <div className="hidden md:inline-flex mb-5 space-x-3">

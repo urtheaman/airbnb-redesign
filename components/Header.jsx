@@ -10,12 +10,23 @@ import { useState } from "react";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const router = useRouter();
+
   const [search, setSearch] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuests, setNoOfGuests] = useState(1);
+
+  const structureDate = (date) => {
+    const dateObj = new Date(date);
+    const month = dateObj.getMonth();
+    const year = dateObj.getFullYear();
+    const day = dateObj.getDate();
+    return `${day}-${month}-${year}`;
+  };
 
   const searchHandler = (event) => {
     setSearch(event.target.value);
@@ -37,7 +48,18 @@ const Header = () => {
     setStartDate(new Date());
     setNoOfGuests(1);
   };
-  const resultHandler = () => {};
+
+  const searchRedirect = () =>
+    router.push({
+      pathname: "search",
+      query: {
+        location: encodeURIComponent(search),
+        startDate: encodeURIComponent(structureDate(startDate)),
+        endDate: encodeURIComponent(structureDate(endDate)),
+        noOfGuests: encodeURIComponent(noOfGuests),
+      },
+    });
+
   return (
     <header className="sticky top-0 z-20 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
       <div className="relative flex items-center h-10 my-auto">
@@ -45,6 +67,7 @@ const Header = () => {
           src="https://links.papareact.com/qd3"
           objectFit="contain"
           alt="Banner"
+          onClick={() => router.push("/")}
           className="cursor-pointer"
           objectPosition="left"
           layout="fill"
@@ -58,6 +81,7 @@ const Header = () => {
           onChange={searchHandler}
           placeholder="Start your search"
           className="outline-none pl-5 bg-transparent flex-grow text-gray-400 placeholder-gray-400"
+          onKeyPress={(e) => e.key === "Enter" && searchRedirect()}
         />
         <SearchIcon className="hidden lg:inline-flex w-8 md:mx-2 text-white bg-red-400 rounded-full p-2 cursor-pointer" />
       </div>
@@ -98,7 +122,7 @@ const Header = () => {
             <button onClick={resetInput} className="flex-grow text-gray-400">
               Cancel
             </button>
-            <button onClick={resultHandler} className="flex-grow text-red-500">
+            <button onClick={searchRedirect} className="flex-grow text-red-500">
               Search
             </button>
           </div>
