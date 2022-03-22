@@ -50,9 +50,7 @@ const Home = ({ exploreData, carasoulCardData }) => {
             />
           </section>
         </main>
-        <footer className="bg-gray-100 border-t ">
-          <Footer />
-        </footer>
+        <Footer />
       </div>
     </div>
   );

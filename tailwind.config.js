@@ -4,7 +4,11 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        infoCardBreakpoint: "1280px",
+      },
+    },
   },
   plugins: [require("tailwind-scrollbar-hide")],
 };

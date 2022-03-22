@@ -7,6 +7,7 @@ const LargeCard = ({ img, title, subtitle, btnContent }) => {
         <Image
           src={img}
           layout="fill"
+          placeholder="empty"
           objectFit="cover"
           alt="large image layout"
           className="rounded-xl"
