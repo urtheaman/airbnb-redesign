@@ -4,6 +4,7 @@ import { HeartIcon as HeartFullIcon } from "@heroicons/react/solid";
 import { HeartIcon } from "@heroicons/react/outline";
 
 const InfoCard = ({
+  currentLocation,
   data: { img, location, title, description, star, price, total, long, lat },
 }) => {
   return (
@@ -21,7 +22,9 @@ const InfoCard = ({
 
       <div className="relative w-full ml-4  flex flex-col">
         <div className="flex-grow">
-          <p className="paragraph-text">{location}</p>
+          <p className="paragraph-text">
+            {location.replace("London", currentLocation)}
+          </p>
           <h3 className="text-lg md:text-xl capitalize">{title}</h3>
           <div className="border-b w-10 pt-4 mb-4"></div>
           <p className="paragraph-text hidden sm:inline">{description}</p>
